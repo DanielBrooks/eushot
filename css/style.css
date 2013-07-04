@@ -1,0 +1,217 @@
+/*----------------------------------------------------------------------------------*/
+/*------------------------------> RESET DEFAULT STYLES <----------------------------*/
+/*----------------------------------------------------------------------------------*/
+html        { width:100%; height:100%; }
+body        { padding:0; margin:0; background: #444; color:#BBB; height: 100%; min-width: 978px; }
+div,p,a,span,em,strong,img,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,td,tr,form,fieldset,label,select,input,textarea {
+    padding:0;
+    margin:0;
+    outline:none;
+    list-style:none;
+}
+body, select, input, textarea, input[type="password"], button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px; 
+}
+
+select, input, textarea        { vertical-align:middle; }
+textarea                       { vertical-align:top; }
+:focus                         { outline:none; }
+input[type=submit]             { cursor:pointer; }
+input[type="password"]         {  }
+input[type="checkbox"]	       { vertical-align: baseline !important; margin-top: 2px !important; }
+img, fieldset                  { border:0; }
+table                          { border-collapse:collapse; border-spacing:0; }
+a                              { color: #000; /*color: #0085D2;*/ text-decoration:none; }
+a:hover                        { color: #00CB98; text-decoration:underline; }
+button                         { color: #fff; padding: 0; border: 0; }
+img                            { display: block; }
+
+.bold {
+    font-weight: bold;
+}
+.clear {
+    clear: both;
+}
+.no-display {
+    display: none !important;
+}
+
+
+/*----------------------------------------------------------------------------------*/
+/*---------------------------------> Main structure <-------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.wrapper {
+    background: url(../images/textures.png);
+    min-height: 100%;
+}
+
+.wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header,
+.footer {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+.footer {
+    height: 38px;
+    bottom: 0;
+}
+
+
+.footer .share-block,
+.footer .copy {
+    background: #111;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+.footer .copy {
+    display: block;
+    font-size: 12px;
+    color: #777;
+    line-height: 120%;
+    padding: 13px 14px 0;
+    height: 25px;
+    float: left;
+}
+
+.footer .share-block {
+    float: right;
+    height: 30px;
+    padding: 8px 10px 0 0;    
+}
+.footer .share-block li {
+    float: left;
+    margin: 0 0 0 10px;
+}
+.footer .share-block a {
+    display: block;
+    width: 20px;
+    height: 21px;
+    background: url(../images/sprite.png) no-repeat;
+}
+.footer .share-block .tw { background-position: 0px -20px; }
+.footer .share-block .vk { background-position: -20px -20px; }
+.footer .share-block .fb { background-position: -40px -20px; }
+.footer .share-block .gp { background-position: -60px -20px; }
+.footer .share-block .in { background-position: -80px -20px; }
+.footer .share-block .is { background-position: -100px -20px; }
+.footer .share-block .pt { background-position: -120px -20px; }
+.footer .share-block .vm { background-position: -140px -20px; }
+
+.footer .share-block .tw:hover { background-position: 0px -50px; }
+.footer .share-block .vk:hover { background-position: -20px -50px; }
+.footer .share-block .fb:hover { background-position: -40px -50px; }
+.footer .share-block .gp:hover { background-position: -60px -50px; }
+.footer .share-block .in:hover { background-position: -80px -50px; }
+.footer .share-block .is:hover { background-position: -100px -50px; }
+.footer .share-block .pt:hover { background-position: -120px -50px; }
+.footer .share-block .vm:hover { background-position: -140px -50px; }
+
+
+.header {
+    top: 0;
+    border-bottom: 1px solid #307D9E;
+    height: 56px;
+}
+.header > .wrap {
+    height: 100%;
+    margin-bottom: 1px;
+}
+.header h1 {
+    padding: 13px 0 0 4px;
+    overflow: 
+}
+.header .logo {
+    display: block;
+    width: 176px;
+    height: 40px;
+}
+
+.nav {
+    float: right;
+    padding: 37px 6px 0 0;
+}
+.nav li {
+    float: left;
+    margin: 0 0 0 22px;
+    position: relative;
+}
+.nav a {
+    display: block;
+    padding: 0 0 0 7px;
+    border-left: 2px solid;
+    line-height: 85%;
+    color: #666;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.nav a:hover {
+    color: #CCC;
+}
+.nav .active a {
+    color: #2BA6DC;
+}
+
+.nav .active:before {
+    display: block;
+    content: "";
+    width: 12px;
+    height: 8px;
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    margin: 0 0 0 -6px;
+    background: url(../images/sprite.png) -80px 0 no-repeat;
+}
+
+
+.sub-nav-block {
+    height: 38px;
+    padding: 14px 0 0;
+    background: rgba(17,17,17,0.5);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#80000000', endColorstr='#80000000');
+}
+.sub-nav {
+    float: right;
+}
+.sub-nav li {
+    float: left;
+    margin: 0 0 0 11px;
+}
+.sub-nav a {
+    display: block;
+    background: #333;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #000;
+    color: #AAA;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-decoration: none;
+    line-height: 120%;
+    
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.sub-nav a:hover {
+    color: #CCC;
+}
+.sub-nav .active a {
+    color: #44AEDE;
+}
+/*----------------------------------------------------------------------------------*/
+/*--------------------------------->  <-------------------------------*/
+/*----------------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------*/
