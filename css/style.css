@@ -258,70 +258,76 @@ img                            { display: block; }
     width: 100%;
     margin: 0 auto;
 }
-.home-page .shadow {
+
+
+.shadow {
     position: relative;
 }
-.home-page .shadow:before,
-.home-page .shadow:after {
+.shadow:before,
+.shadow:after {
     display: block;
     content: "";
     position: absolute;
-    bottom: 3%;
+    bottom: 5%;
     width: 30%;
-    height: 40%;
+    height: 48px;
     background: #f00;
     z-index: -1;
     
-    -webkit-box-shadow: 0 12px 14px 0px #000;
-    -moz-box-shadow: 0 12px 14px 0px #000;
-    box-shadow: 0 12px 14px 0px #000;
+    -webkit-box-shadow: 0 8px 8px 0px #000;
+    -moz-box-shadow: 0 8px 8px 0px #000;
+    box-shadow: 0 8px 8px 0px #000;    
 }
-.home-page .shadow:before {
-    left: 8%;
-    -webkit-transform: skewX(-30deg) rotate(-5deg);
-    transform: skewX(-30deg) rotate(-5deg);
+.shadow:before {
+    left: 6%;
+    -webkit-transform: skewX(-9deg) rotate(-7deg);
+    transform: skewX(-9deg) rotate(-7deg);
 }
-.home-page .shadow:after {
-    right: 8%;
-    -webkit-transform: skewX(30deg) rotate(5deg);
-    transform: skewX(30deg) rotate(5deg);
+.shadow:after {
+    right: 6%;
+    -webkit-transform: skewX(9deg) rotate(7deg);
+    transform: skewX(9deg) rotate(7deg);
 }
-.home-page .shadow > img {
+
+.shadow > img {
     position: relative;
 }
-.home-page .shadow .image-shadow {
+.shadow .image-shadow {
     display: block;
     position: absolute;
     bottom: 0;
     width: 94%;
     height: 5%;
     left: 3%;
-    -webkit-box-shadow: 0 0px 7px #000;
-    -moz-box-shadow: 0 0px 7px #000;
-    box-shadow: 0 0px 7px #000;
-}
-
-.home-page .preview-list .shadow:before,
-.home-page .preview-list .shadow:after {
-    bottom: 5%;
-    -webkit-box-shadow: 0 8px 8px 0px #000;
-    -moz-box-shadow: 0 8px 8px 0px #000;
-    box-shadow: 0 8px 8px 0px #000;    
-}
-.home-page .preview-list .shadow:before {
-    left: 6%;
-    -webkit-transform: skewX(-9deg) rotate(-7deg);
-    transform: skewX(-9deg) rotate(-7deg);
-}
-.home-page .preview-list .shadow:after {
-    right: 6%;
-    -webkit-transform: skewX(9deg) rotate(7deg);
-    transform: skewX(9deg) rotate(7deg);
-}
-.home-page .preview-list .shadow .image-shadow {
     -webkit-box-shadow: 0 0px 4px #000;
     -moz-box-shadow: 0 0px 4px #000;
     box-shadow: 0 0px 4px #000;
+}
+
+
+.preview.shadow:before,
+.preview.shadow:after {
+    height: 240px;
+    max-height: 40%;
+    bottom: 3%;
+    -webkit-box-shadow: 0 12px 14px 0px #000;
+    -moz-box-shadow: 0 12px 14px 0px #000;
+    box-shadow: 0 12px 14px 0px #000;
+}
+.preview.shadow:before {
+    left: 8%;
+    -webkit-transform: skewX(-30deg) rotate(-5deg);
+    transform: skewX(-30deg) rotate(-5deg);
+}
+.preview.shadow:after {
+    right: 8%;
+    -webkit-transform: skewX(30deg) rotate(5deg);
+    transform: skewX(30deg) rotate(5deg);
+}
+.preview.shadow .image-shadow {
+    -webkit-box-shadow: 0 0px 7px #000;
+    -moz-box-shadow: 0 0px 7px #000;
+    box-shadow: 0 0px 7px #000;
 }
 
 
