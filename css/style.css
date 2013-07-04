@@ -1,8 +1,39 @@
+@font-face {
+    font-family: CenturyGothic;
+    src: url('../fonts/gothic.ttf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: CenturyGothic;
+    src: url('../fonts/gothicb.ttf');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: CenturyGothic;
+    src: url('../fonts/gothici.ttf');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: CenturyGothic;
+    src: url('../fonts/gothicbi.ttf');
+    font-weight: bold;
+    font-style: italic;
+
+}
 /*----------------------------------------------------------------------------------*/
 /*------------------------------> RESET DEFAULT STYLES <----------------------------*/
 /*----------------------------------------------------------------------------------*/
 html        { width:100%; height:100%; }
-body        { padding:0; margin:0; background: #444; color:#BBB; height: 100%; min-width: 978px; }
+body        { padding:0; margin:0; background: #FFF; color:#BBB; height: 100%; min-width: 978px; }
 div,p,a,span,em,strong,img,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,td,tr,form,fieldset,label,select,input,textarea {
     padding:0;
     margin:0;
@@ -42,10 +73,12 @@ img                            { display: block; }
 /*---------------------------------> Main structure <-------------------------------*/
 /*----------------------------------------------------------------------------------*/
 .wrapper {
-    background: url(../images/textures.png);
     min-height: 100%;
 }
-
+.wrapper,
+.header {
+    background: url(../images/textures.png);
+}
 .wrap {
     max-width: 1200px;
     margin: 0 auto;
@@ -62,7 +95,9 @@ img                            { display: block; }
     height: 38px;
     bottom: 0;
 }
-
+.content {
+    padding-top: 57px;
+}
 
 .footer .share-block,
 .footer .copy {
@@ -208,10 +243,197 @@ img                            { display: block; }
     color: #44AEDE;
 }
 /*----------------------------------------------------------------------------------*/
-/*--------------------------------->  <-------------------------------*/
+/*-----------------------------------> Home page <----------------------------------*/
 /*----------------------------------------------------------------------------------*/
+.home-page {
+    position: relative;
+    z-index: 0;
+}
+.home-page .preview {
+    display: block;
+    margin: 30px 0 0;
+}
+.home-page .preview img {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+.home-page .shadow {
+    position: relative;
+}
+.home-page .shadow:before,
+.home-page .shadow:after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 3%;
+    width: 30%;
+    height: 40%;
+    background: #f00;
+    z-index: -1;
+    
+    -webkit-box-shadow: 0 12px 14px 0px #000;
+    -moz-box-shadow: 0 12px 14px 0px #000;
+    box-shadow: 0 12px 14px 0px #000;
+}
+.home-page .shadow:before {
+    left: 8%;
+    -webkit-transform: skewX(-30deg) rotate(-5deg);
+    transform: skewX(-30deg) rotate(-5deg);
+}
+.home-page .shadow:after {
+    right: 8%;
+    -webkit-transform: skewX(30deg) rotate(5deg);
+    transform: skewX(30deg) rotate(5deg);
+}
+.home-page .shadow > img {
+    position: relative;
+}
+.home-page .shadow .image-shadow {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 94%;
+    height: 5%;
+    left: 3%;
+    -webkit-box-shadow: 0 0px 7px #000;
+    -moz-box-shadow: 0 0px 7px #000;
+    box-shadow: 0 0px 7px #000;
+}
+
+.home-page .preview-list .shadow:before,
+.home-page .preview-list .shadow:after {
+    bottom: 5%;
+    -webkit-box-shadow: 0 8px 8px 0px #000;
+    -moz-box-shadow: 0 8px 8px 0px #000;
+    box-shadow: 0 8px 8px 0px #000;    
+}
+.home-page .preview-list .shadow:before {
+    left: 6%;
+    -webkit-transform: skewX(-9deg) rotate(-7deg);
+    transform: skewX(-9deg) rotate(-7deg);
+}
+.home-page .preview-list .shadow:after {
+    right: 6%;
+    -webkit-transform: skewX(9deg) rotate(7deg);
+    transform: skewX(9deg) rotate(7deg);
+}
+.home-page .preview-list .shadow .image-shadow {
+    -webkit-box-shadow: 0 0px 4px #000;
+    -moz-box-shadow: 0 0px 4px #000;
+    box-shadow: 0 0px 4px #000;
+}
 
 
+.home-page .preview-list {
+    padding: 45px 0 0;
+    margin: 0 -4px;
+    overflow: hidden;
+}
+.home-page .preview-list li {
+    float: left;
+    margin: 0 0 60px 10px;
+    border: 1px solid transparent;
+    padding: 3px;
+    
+}
+.home-page .preview-list li:first-child {
+    margin: 0;
+}
+/*.home-page .preview-list li:hover,*/
+.home-page .preview-list .active {
+    border-color: #2BA5DB;
+}
+.home-page .preview-list img {
+    max-width: 185px;
+    width: 100%;
+}
+.home-page .preview-list a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    outline: none;
+}
+.home-page .preview-list .photo-overlay {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.7);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#69000000', endColorstr='#69000000');
+}
+.home-page .preview-list li:hover .photo-overlay,
+.home-page .preview-list .active .photo-overlay {
+    background: rgba(0,0,0,0.3);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#69000000', endColorstr='#69000000');
+}
+.home-page .preview-list .caption {
+    font-size: 34px;
+    color: #FFF;
+    opacity: 0.5;
+    padding: 38px 0 0;
+    display: block;
+    font-family: CenturyGothic;
+}
+.home-page .preview-list li:hover .caption,
+.home-page .preview-list .active .caption {
+    opacity: 1;
+}
+
+
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+@media all and (max-width: 1024px) {
+    .home-page .preview-list {
+        margin: 0;
+    }
+    .home-page .preview-list li:first-child, 
+    .home-page .preview-list li {
+        width: 300px;
+        margin-left: 25px;
+    }
+    .home-page .preview-list img {
+        max-width: none;
+    }
+    .home-page .preview-list .shadow:before,
+    .home-page .preview-list .shadow:after {
+        bottom: 3%;
+    }
+    .home-page .preview-list .caption {
+        padding: 70px 0 0;
+    }
+}
+
+
+@media all and (max-width: 1024px) and (min-width: 769px) {
+}
+@media all and (max-width: 768px) {
+    body {
+        min-width: 768px;
+    }
+    .home-page .preview {
+        width: 768px;
+    }
+    .home-page .preview-list li:first-child, 
+    .home-page .preview-list li {
+        width: 220px;
+        margin-left: 21px;
+    }
+    .home-page .preview-list .shadow:before,
+    .home-page .preview-list .shadow:after {
+        bottom: 4.5%;
+    }
+    .home-page .preview-list .caption {
+        padding: 45px 0 0;
+    }
+}
 /*----------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------*/
