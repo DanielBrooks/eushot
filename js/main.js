@@ -1,15 +1,63 @@
 $(document).ready(function() {
     
-    $('.slider-wrap, .collage-wrap').addClass('no-display');
+    /*
+    $('.home-page .preview-list a').on('click', function(e) {
+        
+        e.preventDefault();
+        
+        var source = $(this).find('img').attr('src');
+        
+        $('.home-page .preview-list li.active').removeClass('active');
+        $(this).closest('li').addClass('active');
+        $('.home-page .preview img').attr('src', $(this).find('img').attr('src'));
+        
+        $(window).scrollTop(0);
+        
+    });
+    */
+    
+    
+    /*
+    showScrollUpBtn();
+    
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        
+        $(document).on('touchmove touchend', function() {
+            showScrollUpBtn();
+        });
+        
+    }
+    $(document).on('scroll', function() {
+        showScrollUpBtn();
+    });    
+    
+    $('#scroll-up').on('click', function() {
+        $('html, body').animate({scrollTop: '0px'}, { duration: 200, complete: showScrollUpBtn });
+        showScrollUpBtn();
+    });    
+    
+    function showScrollUpBtn() {
+        
+        if ($(window).scrollTop() > 0) {
+            $('#scroll-up').css('display', 'block');
+        }
+        else {
+            $('#scroll-up').css('display', 'none');
+        }
+        
+    }
+    */
+    
+    $('.slider-wrap, .collage-wrap, .blog-wrap').addClass('no-display');
     
 });
 
 $(window).load(function() {
     
+    $('.slider-wrap, .collage-wrap, .blog-wrap').removeClass('no-display');
+
     $('#blog').masonry();
     
-    $('.slider-wrap, .collage-wrap').removeClass('no-display');
-
     var $window = $(window),
         slideNum = parseInt(location.hash.replace('#', '')) || 0,
         $slider = $('#slider'),
@@ -52,6 +100,11 @@ $(window).load(function() {
     });
     
     
+    // Borders have to be calculated BEFORE the slider is hidden
+    leftBorder = $sliderWrap.width() / 2 - $slider.find('li[data-slide-id="1"]').width() / 2;
+    rightBorder = $sliderWrap.width() / 2 - $slider.width() + $slider.find('li[data-slide-id="'+slideCounter+'"]').width() / 2;
+    
+    // Determine whether the url is pointing out a specific slide or the collage in general
     if ($collage.find('a[href="#'+slideNum+'"]').length == 0) {
         
         $('.wrapper').removeClass('slider-enabled');
@@ -66,7 +119,7 @@ $(window).load(function() {
         
     }
     
-    
+    // Adding transition effect to the slider. Time out is set for the case when a slide is being opened directly
     setTimeout(function(){
         $slider.addClass('transition');
     }, 100);     
@@ -80,8 +133,8 @@ $(window).load(function() {
         
         $('.wrapper').addClass('slider-enabled');
         
-        $collage.addClass('no-display');
         $sliderWrap.removeClass('no-display');
+        $collage.addClass('no-display');
         
         slideNum = parseInt($(this).attr('href').split('#')[1]);
         
@@ -105,7 +158,7 @@ $(window).load(function() {
         
         $collage.masonry();
         
-        $window.scrollTop(collageScrollPos);
+        $('html, body').animate({scrollTop: collageScrollPos}, 250);
         
         history.pushState('', document.title, window.location.pathname);
         
@@ -142,9 +195,6 @@ $(window).load(function() {
         
     });
     
-    
-    leftBorder = $sliderWrap.width() / 2 - $slider.find('li[data-slide-id="1"]').width() / 2;
-    rightBorder = $sliderWrap.width() / 2 - $slider.width() + $slider.find('li[data-slide-id="'+slideCounter+'"]').width() / 2;
     
     $sliderWrap.on("touchstart", function(event) {
         
