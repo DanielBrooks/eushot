@@ -1,53 +1,5 @@
 $(document).ready(function() {
     
-    /*
-    $('.home-page .preview-list a').on('click', function(e) {
-        
-        e.preventDefault();
-        
-        var source = $(this).find('img').attr('src');
-        
-        $('.home-page .preview-list li.active').removeClass('active');
-        $(this).closest('li').addClass('active');
-        $('.home-page .preview img').attr('src', $(this).find('img').attr('src'));
-        
-        $(window).scrollTop(0);
-        
-    });
-    */
-    
-    
-    /*
-    showScrollUpBtn();
-    
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-        
-        $(document).on('touchmove touchend', function() {
-            showScrollUpBtn();
-        });
-        
-    }
-    $(document).on('scroll', function() {
-        showScrollUpBtn();
-    });    
-    
-    $('#scroll-up').on('click', function() {
-        $('html, body').animate({scrollTop: '0px'}, { duration: 200, complete: showScrollUpBtn });
-        showScrollUpBtn();
-    });    
-    
-    function showScrollUpBtn() {
-        
-        if ($(window).scrollTop() > 0) {
-            $('#scroll-up').css('display', 'block');
-        }
-        else {
-            $('#scroll-up').css('display', 'none');
-        }
-        
-    }
-    */
-    
     $('.slider-wrap, .collage-wrap, .blog-wrap').addClass('no-display');
     
 });
@@ -101,51 +53,6 @@ $(window).load(function() {
         homeSliderInit();
     });
     
-    /*
-    $slider.css('width', function() {
-        
-        var width = 0;
-        
-        $(this).find('li').each(function() {
-            
-            slideCounter++;
-            
-            $(this).css('width', $(this).find('img').width());
-            $(this).attr('data-slide-id', slideCounter);
-            width = width + $(this).width() + parseInt($(this).css('margin-left'));
-            
-        });
-        
-        return width;
-        
-    });
-    */
-    
-    /*
-    // Borders have to be calculated BEFORE the slider is hidden
-    leftBorder = $sliderWrap.width() / 2 - $slider.find('li[data-slide-id="1"]').width() / 2;
-    rightBorder = $sliderWrap.width() / 2 - $slider.width() + $slider.find('li[data-slide-id="'+slideCounter+'"]').width() / 2;
-    
-    // Determine whether the url is pointing out a specific slide or the collage in general
-    if ($collage.find('a[href="#'+slideNum+'"]').length == 0) {
-        
-        $('.wrapper').removeClass('slider-enabled');
-        $sliderWrap.addClass('no-display');
-        
-    }
-    else {
-        
-        $('.wrapper').addClass('slider-enabled');
-        $collage.addClass('no-display');
-        moveToSlide(slideNum);
-        
-    }
-    
-    // Adding transition effect to the slider. Time out is set for the case when a slide is being opened directly
-    setTimeout(function(){
-        $slider.addClass('transition');
-    }, 100);     
-    */
     
     $collageLink.on('click', function(e) {
         
