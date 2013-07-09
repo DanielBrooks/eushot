@@ -55,8 +55,7 @@ $(document).ready(function() {
 $(window).load(function() {
     
     $('.slider-wrap, .collage-wrap, .blog-wrap').removeClass('no-display');
-
-    $('#blog').masonry();
+    
     
     var $window = $(window),
         slideNum = parseInt(location.hash.replace('#', '')) || 0,
@@ -78,7 +77,13 @@ $(window).load(function() {
         collageScrollPos;
     
     
+    $('#blog').masonry();
     $collage.masonry();
+    
+    $(window).on('orientationchange', function() {
+        $('#blog').masonry();
+        $collage.masonry();
+    });
     
     
     $slider.css('width', function() {

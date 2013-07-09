@@ -98,7 +98,8 @@ img                            { display: block; }
 }
 .header .wrap,
 .footer .wrap,
-.home-page .wrap {
+.content.home-page .wrap,
+.content.about-page .wrap {
     max-width: 1200px;
 }
 
@@ -726,6 +727,34 @@ img                            { display: block; }
 .blog-info-list img {
     max-width: 100%;
 }
+
+
+/*----------------------------------------------------------------------------------*/
+/*-----------------------------------> About page <---------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.about-page {
+    padding: 85px 0 100px;
+}
+.about-page .wrap {
+    background: url(../images/about.png) center top no-repeat;
+    min-height: 745px;
+}
+.about-page .info {
+    float: right;
+    width: 295px;
+    padding: 159px 54px 0 0;
+}
+.about-page p {
+    font: 12px/140% CenturyGothic;
+    color: #BABABA;
+    opacity: 0.9;
+}
+.about-page .contact-info {
+    font-size: 16px;
+}
+.about-page .description {
+    padding: 36px 0 71px;
+}
 /*----------------------------------------------------------------------------------*/
 /*-----------------------------------> Responsive <---------------------------------*/
 /*----------------------------------------------------------------------------------*/
@@ -748,11 +777,33 @@ img                            { display: block; }
     .home-page .preview-list .caption {
         padding: 70px 0 0;
     }
+    
+    .about-page .wrap {
+        background-size: auto 636px;
+        min-height: 636px;
+        overflow: hidden;
+    }
+    .about-page .wrap img {
+        width: 100%;
+    }
+    .about-page .info {
+        padding: 90px 32px 0 0;
+    }
+    /*
+    748-30=718
+    m 14
+    230
+    */
+    
+
 }
 
 @media all and (max-width: 768px) {
     body {
         min-width: 768px;
+    }
+    .content .wrap {
+        max-width: 748px;
     }
     .home-page .preview {
         width: 768px;
@@ -769,6 +820,23 @@ img                            { display: block; }
     .home-page .preview-list .caption {
         padding: 45px 0 0;
     }
+    
+    .about-page {
+        padding-top: 140px;
+    }
+    .about-page .wrap {
+        background-position: -200px 0;
+    }
+    
+    
+    .blog-list {
+        width: 762px;
+    }
+    .blog-list li {
+        width: 230px;
+        margin: 0 14px 12px 0;
+    }
+
 }
 /*----------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------*/
