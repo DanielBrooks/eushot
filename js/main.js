@@ -56,7 +56,6 @@ $(window).load(function() {
     
     $('.slider-wrap, .collage-wrap, .blog-wrap').removeClass('no-display');
     
-    
     var $window = $(window),
         slideNum = parseInt(location.hash.replace('#', '')) || 0,
         $slider = $('#slider'),
@@ -77,15 +76,32 @@ $(window).load(function() {
         collageScrollPos;
     
     
+    homeSliderInit();
+    
+    
     $('#blog').masonry();
     $collage.masonry();
     
+    $slider.find('li').each(function() {
+        
+        slideCounter++;
+        
+        $(this).attr('data-slide-id', slideCounter);
+        
+    });
+
+    calculateSliderSizes();
+    
     $(window).on('orientationchange', function() {
+        $('.slider-wrap, .collage-wrap, .blog-wrap').removeClass('no-display');
         $('#blog').masonry();
+        
         $collage.masonry();
+        calculateSliderSizes();
+        homeSliderInit();
     });
     
-    
+    /*
     $slider.css('width', function() {
         
         var width = 0;
@@ -103,8 +119,9 @@ $(window).load(function() {
         return width;
         
     });
+    */
     
-    
+    /*
     // Borders have to be calculated BEFORE the slider is hidden
     leftBorder = $sliderWrap.width() / 2 - $slider.find('li[data-slide-id="1"]').width() / 2;
     rightBorder = $sliderWrap.width() / 2 - $slider.width() + $slider.find('li[data-slide-id="'+slideCounter+'"]').width() / 2;
@@ -128,7 +145,7 @@ $(window).load(function() {
     setTimeout(function(){
         $slider.addClass('transition');
     }, 100);     
-    
+    */
     
     $collageLink.on('click', function(e) {
         
@@ -282,6 +299,62 @@ $(window).load(function() {
         }
         
     });
+    
+    
+    function homeSliderInit() {
+        
+        $('.home-page .preview-slider').anythingSlider();
+        $('.preview-slider').css('height', $('.preview-slider').find('img').height());
+        
+        
+    }
+    
+    
+    function calculateSliderSizes() {
+        
+        $slider.removeClass('transition');
+        
+        slideNum = parseInt(location.hash.replace('#', '')) || 0;
+        
+        $slider.css('width', function() {
+            
+            var width = 0;
+            
+            $(this).find('li').each(function() {
+                $(this).css('width', $(this).find('img').width());
+                width = width + $(this).width() + parseInt($(this).css('margin-left'));
+                
+            });
+            
+            return width;
+            
+        });
+        
+        // Borders have to be calculated BEFORE the slider is hidden
+        leftBorder = $sliderWrap.width() / 2 - $slider.find('li[data-slide-id="1"]').width() / 2;
+        rightBorder = $sliderWrap.width() / 2 - $slider.width() + $slider.find('li[data-slide-id="'+slideCounter+'"]').width() / 2;
+        
+        // Determine whether the url is pointing out a specific slide or the collage in general
+        if ($collage.find('a[href="#'+slideNum+'"]').length == 0) {
+            
+            $('.wrapper').removeClass('slider-enabled');
+            $sliderWrap.addClass('no-display');
+            
+        }
+        else {
+            
+            $('.wrapper').addClass('slider-enabled');
+            $collage.addClass('no-display');
+            moveToSlide(slideNum);
+            
+        }
+        
+        // Adding transition effect to the slider. Time out is set for the case when a slide is being opened directly
+        setTimeout(function(){
+            $slider.addClass('transition');
+        }, 100);     
+        
+    }
     
     
     function swipePrev() {
